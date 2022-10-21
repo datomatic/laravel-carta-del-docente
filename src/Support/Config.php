@@ -8,7 +8,9 @@ class Config
 {
     public static function getCertificatePath(): string
     {
-        if (self::getEnvironment() !== 'production') { return '';}
+        if (self::getEnvironment() !== 'production') {
+            return '';
+        }
 
         $certificatePath = config('carta-del-docente.certificatePath');
 
@@ -24,7 +26,9 @@ class Config
 
     public static function getCertificatePassword(): string
     {
-        if (self::getEnvironment() !== 'production') { return '';}
+        if (self::getEnvironment() !== 'production') {
+            return '';
+        }
 
         $password = config('carta-del-docente.certificatePassword');
 
