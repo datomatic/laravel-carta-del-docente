@@ -8,11 +8,15 @@ class Config
 {
     public static function getCertificatePath(): string
     {
+        if (self::getEnvironment() !== 'production') { return '';}
+
         $certificatePath = config('carta-del-docente.certificatePath');
+
         throw_if(empty($certificatePath), InvalidConfig::missingCertificatePath());
         throw_if(! is_string($certificatePath), InvalidConfig::wrongStringParam('certificatePath'));
 
         $certificatePath = base_path($certificatePath);
+
         throw_if(! file_exists($certificatePath), InvalidConfig::missingCertificate($certificatePath));
 
         return $certificatePath;
@@ -20,11 +24,9 @@ class Config
 
     public static function getCertificatePassword(): string
     {
-        $password = config('carta-del-docente.certificatePassword');
+        if (self::getEnvironment() !== 'production') { return '';}
 
-        if (empty($password) && self::getEnvironment() !== 'production') {
-            $password = 'm3D0T4aM';
-        }
+        $password = config('carta-del-docente.certificatePassword');
 
         throw_if(empty($password), InvalidConfig::missingCertificatePassword());
         throw_if(! is_string($password), InvalidConfig::wrongStringParam('certificatePassword'));
