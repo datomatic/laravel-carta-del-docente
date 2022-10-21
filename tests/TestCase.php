@@ -2,9 +2,9 @@
 
 namespace Datomatic\LaravelCartaDelDocente\Tests;
 
+use Datomatic\LaravelCartaDelDocente\LaravelCartaDelDocenteServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Datomatic\LaravelCartaDelDocente\LaravelCartaDelDocenteServiceProvider;
 
 class TestCase extends Orchestra
 {

@@ -18,6 +18,6 @@ class LaravelCartaDelDocenteServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->singleton( CartaDelDocenteClient::class, fn() => CartaDelDocenteFactory::execute());
+        $this->app->singleton(CartaDelDocenteClient::class, fn () => CartaDelDocenteFactory::execute());
     }
 }

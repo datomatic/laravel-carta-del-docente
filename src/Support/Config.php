@@ -10,10 +10,10 @@ class Config
     {
         $certificatePath = config('carta-del-docente.certificatePath');
         throw_if(empty($certificatePath), InvalidConfig::missingCertificatePath());
-        throw_if(!is_string($certificatePath), InvalidConfig::wrongStringParam('certificatePath'));
+        throw_if(! is_string($certificatePath), InvalidConfig::wrongStringParam('certificatePath'));
 
         $certificatePath = base_path($certificatePath);
-        throw_if(!file_exists($certificatePath), InvalidConfig::missingCertificate($certificatePath));
+        throw_if(! file_exists($certificatePath), InvalidConfig::missingCertificate($certificatePath));
 
         return $certificatePath;
     }
@@ -27,7 +27,7 @@ class Config
         }
 
         throw_if(empty($password), InvalidConfig::missingCertificatePassword());
-        throw_if(!is_string($password), InvalidConfig::wrongStringParam('certificatePassword'));
+        throw_if(! is_string($password), InvalidConfig::wrongStringParam('certificatePassword'));
 
         return $password;
     }
@@ -36,7 +36,7 @@ class Config
     {
         $environment = config('carta-del-docente.environment');
 
-        throw_if(!is_string($environment), InvalidConfig::wrongStringParam('environment'));
+        throw_if(! is_string($environment), InvalidConfig::wrongStringParam('environment'));
 
         return $environment;
     }

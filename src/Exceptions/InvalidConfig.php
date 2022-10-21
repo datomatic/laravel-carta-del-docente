@@ -4,7 +4,7 @@ namespace Datomatic\LaravelCartaDelDocente\Exceptions;
 
 use RuntimeException;
 
-class InvalidConfig extendS RuntimeException
+class InvalidConfig extends RuntimeException
 {
     public static function missingCertificate(string $path): self
     {
@@ -13,12 +13,12 @@ class InvalidConfig extendS RuntimeException
 
     public static function missingCertificatePath(): self
     {
-        return new self("You need to set certificate on carta-del-docente.php config file");
+        return new self('You need to set certificate on carta-del-docente.php config file');
     }
 
     public static function missingCertificatePassword(): self
     {
-        return new self("You need to set certificate password on carta-del-docente.php config file");
+        return new self('You need to set certificate password on carta-del-docente.php config file');
     }
 
     public static function wrongStringParam(string $param): self
