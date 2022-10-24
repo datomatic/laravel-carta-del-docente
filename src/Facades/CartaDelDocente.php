@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \SoapClient client()
- * @method static \Datomatic\CartaDelDocente\CartaDelDocenteResponse check()
+ * @method static \Datomatic\CartaDelDocente\CartaDelDocenteResponse check(string $operationType, string $voucher)
  * @method static \Datomatic\CartaDelDocente\CartaDelDocenteResponse merchantActivation()
- * @method static bool confirm()
+ * @method static bool confirm(string $operationType, string $voucher, float $amount)
  *
  * @see \Datomatic\LaravelCartaDelDocente\CartaDelDocenteClient
  */
