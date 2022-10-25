@@ -1,5 +1,5 @@
 ![Enum Helper-Dark](branding/dark.png#gh-dark-mode-only)![Enum Helper-Light](branding/light.png#gh-light-mode-only)
-# Laravel PHP Soap wrapper of Carta del Docente
+# Laravel Carta del Docente
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/datomatic/laravel-carta-del-docente.svg?style=for-the-badge)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/datomatic/laravel-carta-del-docente/Fix%20PHP%20code%20style%20issues?label=code%20style&color=5FE8B3&style=for-the-badge)](https://github.com/datomatic/laravel-enum-collections/actions/workflows/fix-php-code-style-issues.yml)
