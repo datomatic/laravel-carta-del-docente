@@ -15,8 +15,7 @@ class CartaDelDocenteFactory
     {
         return new CartaDelDocenteClient(
             certificatePath: Config::getCertificatePath(),
-            certificatePassword: Config::getCertificatePassword(),
-            production: Config::getEnvironment() === 'production'
+            certificatePassword: Config::getCertificatePassword()
         );
     }
 }

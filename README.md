@@ -1,59 +1,87 @@
+![Enum Helper-Dark](branding/dark.png#gh-dark-mode-only)![Enum Helper-Light](branding/light.png#gh-light-mode-only)
 # Laravel PHP Soap wrapper of Carta del Docente
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/datomatic/laravel-carta-del-docente.svg?style=flat-square)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/datomatic/laravel-carta-del-docente/run-tests?label=tests)](https://github.com/datomatic/laravel-carta-del-docente/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/datomatic/laravel-carta-del-docente/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/datomatic/laravel-carta-del-docente/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/datomatic/laravel-carta-del-docente.svg?style=flat-square)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/datomatic/laravel-carta-del-docente.svg?style=for-the-badge)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/datomatic/laravel-carta-del-docente/Fix%20PHP%20code%20style%20issues?label=code%20style&color=5FE8B3&style=for-the-badge)](https://github.com/datomatic/laravel-enum-collections/actions/workflows/fix-php-code-style-issues.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/datomatic/laravel-carta-del-docente.svg?style=for-the-badge)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Questo è un wrapper Laravel per il pacchetto [datomatic/carta-del-docente](https://github.com/datomatic/carta-del-docente).
 
-## Support us
+## Requisiti
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-carta-del-docente.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-carta-del-docente)
+- Laravel >= 9.0
+- PHP >= 8.0
+- ext-soap
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+## Installazione
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
-
-## Installation
-
-You can install the package via composer:
+Puoi installare il pacchetto via composer:
 
 ```bash
 composer require datomatic/laravel-carta-del-docente
 ```
 
-You can publish and run the migrations with:
+## Configurazione
 
-```bash
-php artisan vendor:publish --tag="laravel-carta-del-docente-migrations"
-php artisan migrate
-```
+Per utilizzare la carta del docente in ambiente di test non serve fare nulla, mentre per generare il certificato per l'ambiente di produzione bisogna seguire la seguente [guida](https://github.com/datomatic/carta-del-docente#come-generare-un-certificato-valido).
 
-You can publish the config file with:
+In ambiente di produzione dobbiamo andare a inserire questi due valori nel file .env:
+- `CARTA_DEL_DOCENTE_CERTIFICATE=` mettendo il path al certificando partendo dalla root del progetto (evitate di metterlo accessibile da esterno, quindi non mettetelo nella cartella public)
+- `CARTA_DEL_DOCENTE_CERTIFICATE_PASSWORD` la password del certificato
+- opzionalmente `CARTA_DEL_DOCENTE_ENV` perchè di default viene preso `APP_ENV` del progetto
+
+È possibile pubblicare le configurazioni della carta-del-docente con il comando:
 
 ```bash
 php artisan vendor:publish --tag="laravel-carta-del-docente-config"
 ```
 
-This is the contents of the published config file:
+Questo è il contenuto del file di configurazione pubblicato:
 
 ```php
 return [
+    'certificatePath' => env('CARTA_DEL_DOCENTE_CERTIFICATE'),
+    'certificatePassword' => env('CARTA_DEL_DOCENTE_CERTIFICATE_PASSWORD'),
+    'environment' => env('CARTA_DEL_DOCENTE_ENV', config('app.env')),
 ];
 ```
 
-Optionally, you can publish the views using
+## Utilizzo
 
-```bash
-php artisan vendor:publish --tag="laravel-carta-del-docente-views"
-```
+L'utilizzo del pacchetto è molto semplice e si può fare attraverso due modi: facade e service container.
+Per i dettagli delle funzioni potete guardare il pacchetto base [datomatic/carta-del-docente](https://github.com/datomatic/carta-del-docente) e la [documentazione ufficiale](https://www.cartadeldocente.istruzione.it/static/Linee%20Guida%20Esercenti.pdf). 
 
-## Usage
+### Facade
+
+La Facade è il metodo più semplice perché basta richiamare `CartaDelDocente` e otteniamo direttamente un client dal quale possiamo staticamente richiamare le funzionalità.
 
 ```php
-$laravelCartaDelDocente = new Datomatic\LaravelCartaDelDocente();
-echo $laravelCartaDelDocente->echoPhrase('Hello, Datomatic!');
+use Datomatic\LaravelCartaDelDocente\Facades\CartaDelDocente;
+
+CartaDelDocente::merchantActivation();
+CartaDelDocente::check(1, 'voucher');
+CartaDelDocente::confirm(1, 'voucher', 52.5);
+```
+
+### Service container
+
+Tramite service container bisogna richiamare la classe `Datomatic\CartaDelDocente\CartaDelDocenteClient` per ottenere l'istanza del client:
+
+```php
+
+use Datomatic\CartaDelDocente\CartaDelDocenteClient;
+
+//Resolve
+$client = App::make(CartaDelDocenteClient::class);
+$client = app(CartaDelDocenteClient::class);
+$client = resolve(CartaDelDocenteClient::class);
+
+//Automatic Injection
+public function __construct(public CartaDelDocenteClient $client){}
+
+$client->merchantActivation();
+$client->check(1, 'voucher');
+$client->confirm(1, 'voucher', 52.5);
 ```
 
 ## Testing
