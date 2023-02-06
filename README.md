@@ -2,7 +2,7 @@
 # Laravel Carta del Docente
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/datomatic/laravel-carta-del-docente.svg?style=for-the-badge)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/datomatic/laravel-carta-del-docente/Fix%20PHP%20code%20style%20issues?label=code%20style&color=5FE8B3&style=for-the-badge)](https://github.com/datomatic/laravel-enum-collections/actions/workflows/fix-php-code-style-issues.yml)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/datomatic/laravel-carta-del-docente/fix-php-code-style-issues.yml?label=code%20style&color=5FE8B3&style=for-the-badge)](https://github.com/datomatic/laravel-carta-del-docente/actions/workflows/fix-php-code-style-issues.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/datomatic/laravel-carta-del-docente.svg?style=for-the-badge)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
 
 Questo è un wrapper Laravel per il pacchetto [datomatic/carta-del-docente](https://github.com/datomatic/carta-del-docente).
