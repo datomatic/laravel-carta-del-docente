@@ -23,7 +23,7 @@
         "ext-soap": "*"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
+        "laravel/pint": "^2.0",
         "nunomaduro/collision": "^6.0",
         "nunomaduro/larastan": "^2.0.1",
         "orchestra/testbench": "^7.0",
