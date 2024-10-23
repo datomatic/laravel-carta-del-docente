@@ -1,4 +1,4 @@
-![Enum Helper-Dark](branding/dark.png#gh-dark-mode-only)![Enum Helper-Light](branding/light.png#gh-light-mode-only)
+![Laravel-Carta-del-Docente-Dark](branding/dark.png#gh-dark-mode-only)![Laravel-Carta-del-Docente-Light](branding/light.png#gh-light-mode-only)
 # Laravel Carta del Docente
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/datomatic/laravel-carta-del-docente.svg?style=for-the-badge)](https://packagist.org/packages/datomatic/laravel-carta-del-docente)
