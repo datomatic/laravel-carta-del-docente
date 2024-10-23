@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-carta-del-docente` will be documented in this file.
 
+## v1.2.2 - 2024-10-23
+
+- add cache none param
+
 ## v1.2.1 - 2024-10-23
 
 - update carta-del-docente wsdl
