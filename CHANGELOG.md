@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-carta-del-docente` will be documented in this file.
 
+## v1.2.1 - 2024-10-23
+
+- update carta-del-docente wsdl
+
 ## v1.2.0 - 2024-03-14
 
 Laravel 11 support
