@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-carta-del-docente` will be documented in this file.
 
+## v1.3.0 - 2025-02-24
+
+- Laravel 12 support
+
 ## v1.2.2 - 2024-10-23
 
 - add cache none param
