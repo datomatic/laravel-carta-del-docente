@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-carta-del-docente` will be documented in this file.
 
+## v1.3.1 - 2026-03-17
+
+Laravel 13 support
+
 ## v1.3.0 - 2025-02-24
 
 - Laravel 12 support
