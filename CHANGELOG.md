@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-carta-del-docente` will be documented in this file.
 
+## v1.4.0 - 2026-11-20
+
+Adds PHP 8.6 support (CI now runs on PHP 8.6).
+
+### What's Changed
+
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/datomatic/laravel-carta-del-docente/pull/27
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/datomatic/laravel-carta-del-docente/pull/28
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/datomatic/laravel-carta-del-docente/pull/29
+
+**Full Changelog**: https://github.com/datomatic/laravel-carta-del-docente/compare/v1.3.1...v1.4.0
+
 ## v1.3.1 - 2026-03-17
 
 Laravel 13 support
