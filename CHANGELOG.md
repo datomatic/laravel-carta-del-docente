@@ -2,6 +2,23 @@
 
 All notable changes to `laravel-carta-del-docente` will be documented in this file.
 
+## v2.0.0 - 2026-11-21
+
+### Breaking changes
+
+- Minimum PHP version is now **8.2** (dropped PHP 8.0 and 8.1).
+- Minimum Laravel version is now **11** (dropped Laravel 9 and 10).
+
+Projects still on Laravel 9/10 or PHP < 8.2 can keep using `^1.4`.
+
+### What's Changed
+
+- Replace abandoned `nunomaduro/larastan` with `larastan/larastan`
+- PHPStan CI now runs on PHP 8.4; config updated for PHPStan 2 / Larastan 3
+- Bump actions/checkout from 6 to 7 in https://github.com/datomatic/laravel-carta-del-docente/pull/30
+
+**Full Changelog**: https://github.com/datomatic/laravel-carta-del-docente/compare/v1.4.0...v2.0.0
+
 ## v1.4.0 - 2026-11-20
 
 Adds PHP 8.6 support (CI now runs on PHP 8.6).
