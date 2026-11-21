@@ -2,6 +2,7 @@
 
 namespace Datomatic\LaravelCartaDelDocente\Facades;
 
+use Datomatic\LaravelCartaDelDocente\CartaDelDocenteClient;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Datomatic\CartaDelDocente\CartaDelDocenteResponse merchantActivation()
  * @method static bool confirm(string|int $operationType, string $voucher, float $amount)
  *
- * @see \Datomatic\LaravelCartaDelDocente\CartaDelDocenteClient
+ * @see CartaDelDocenteClient
  */
 class CartaDelDocente extends Facade
 {
